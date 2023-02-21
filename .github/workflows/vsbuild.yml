@@ -25,6 +25,6 @@ jobs:
         shell: pwsh
         run: |
           cd ${{ github.workspace }}
-          sed -i `s/(.*builtin-baseline).*/\0\": \"${{ github.sha }}\"\,/` ./vcpkg.json
+          sed -i `s/(.*builtin-baseline).*/\0\": \"${{ github.sha }}\",/` vcpkg.json
           cat vcpkg.json
           vcpkg integrate install
