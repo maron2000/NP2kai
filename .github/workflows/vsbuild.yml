@@ -49,6 +49,7 @@ jobs:
         shell: pwsh
         run: |
           cd ${{ github.workspace }}
-          cmake . -G"Ninja" -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_MAKE_PROGRAM=ninja.exe
+          cmake . -G"Ninja" -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_MAKE_PROGRAM=ninja.exe -DCMAKE_CXX_COMPILER=cl.exe -DCMAKE_C_COMPILER=cl.exe
+          type D:/a/NP2kai/NP2kai/CMakeFiles/CMakeOutput.log
           dir
           
