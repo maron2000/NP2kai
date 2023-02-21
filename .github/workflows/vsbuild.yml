@@ -31,6 +31,6 @@ jobs:
         shell: pwsh
         run: |
           cd ${{ github.workspace }}
-          cmake .. -G"Ninja" -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_MAKE_PROGRAM=ninja.exe
+          cmake . -G"Ninja" -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_MAKE_PROGRAM=ninja.exe
           ls -lg
           
