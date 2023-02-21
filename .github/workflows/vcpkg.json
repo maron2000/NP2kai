@@ -3,7 +3,7 @@
     "name": "NP2kai",
     "description": "NP2kai is PC-9801 series emulator",
     "version": "rev.22",
-    "builtin-baseline": "",
+    "builtin-baseline": "1234567890123456789012345678901234567890",
     "dependencies": [
         {"name": "OpenSSL", "version>=": "3.0.0"}, 
         {"name": "sdl2", "version>=": "2.24.0"},
