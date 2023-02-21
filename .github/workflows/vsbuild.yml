@@ -31,7 +31,8 @@ jobs:
           echo '    "description": "NP2kai is PC-9801 series emulator",'  >> vcpkg.json
           echo '    "version": "0.86",'  >> vcpkg.json
           $part1 = '    "builtin-baseline": "'
-          $part2 = "${{ github.sha }}"
+          #$part2 = "${{ github.sha }}"
+          $part2 = '93895b28ea7bc8cda10f156c5d336f3fc070f8b1'
           $part3 = '",'
           echo "$part1$part2$part3" >> vcpkg.json
           echo '    "dependencies": [' >> vcpkg.json
