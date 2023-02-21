@@ -25,6 +25,20 @@ jobs:
         shell: pwsh
         run: |
           cd ${{ github.workspace }}
+          echo '{' > vcpkg.json
+          echo '    "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg/master/scripts/vcpkg.schema.json",' >> vcpkg.json
+          echo '    "name": "np2kai",'  >> vcpkg.json
+          echo '    "description": "NP2kai is PC-9801 series emulator",'  >> vcpkg.json
+          echo '    "version": "0.86",'  >> vcpkg.json
+          echo '    "builtin-baseline": "'+ ${{ github.sha }} + '",' >> vcpkg.json
+          echo '    "dependencies": [' >> vcpkg.json
+          echo '       {"name": "openssl", "version>=": "3.0.0"},' >> vcpkg.json
+          echo '       {"name": "sdl2", "version>=": "2.24.0"},' >> vcpkg.json
+          echo '       {"name": "sdl2-mixer", "version>=": "2.6.1"},' >> vcpkg.json
+          echo '       {"name": "sdl2-ttf", "version>=": "2.20.0"},' >> vcpkg.json
+          echo '       {"name": "libusb", "version>=": "1.0.26"}' >> vcpkg.json
+          echo '     ]' >> vcpkg.json
+          echo '}' >> vcpkg.json
           cat vcpkg.json
           vcpkg integrate install
       - name: run cmake
