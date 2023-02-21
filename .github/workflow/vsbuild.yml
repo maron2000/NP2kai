@@ -1,0 +1,28 @@
+name: Visual Studio builds
+on:
+  push:
+  workflow_dispatch:
+permissions:
+  contents: read
+  
+jobs:
+  MSVC_CI_build:
+    permissions:
+      actions: write  # for styfle/cancel-workflow-action to cancel/stop running workflow
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Cancel previous runs
+        uses: styfle/cancel-workflow-action@0.11.0
+        with:
+          access_token: ${{ github.token }}
+        uses: actions/checkout@v3
+        uses: microsoft/setup-msbuild@v1.3
+        uses: seanmiddleditch/gha-setup-ninja@master
+      - name: Install dependencies
+        shell: pwsh
+        run: |
+          cd ${{ github.workspace }}
+          vcpkg integrate install
