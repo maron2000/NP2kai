@@ -199,6 +199,7 @@ serialgetstat(COMMNG self)
 	}else{
 		VERBOSE(("serialgetstat: DSR is enable"));
 	}
+#if !defined(__MINGW__)
 	if (!(status & TIOCM_CTS)) {
 		ret |= 0x40;
 	}
@@ -208,6 +209,7 @@ serialgetstat(COMMNG self)
 	if (!(status & TIOCM_CAR)) {
 		ret |= 0x20;
 	}
+#endif
 	return ret;
 }
 
