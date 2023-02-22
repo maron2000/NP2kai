@@ -8,6 +8,8 @@ permissions:
 
 jobs:
   MinGW64_CI_build:
+    env:
+      NP2KAI_VERSION: rev.22
     permissions:
       actions: write  # for styfle/cancel-workflow-action to cancel/stop running workflows
       contents: write # for actions/checkout to fetch code and softprops/action-gh-release
