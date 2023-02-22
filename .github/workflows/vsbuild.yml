@@ -54,7 +54,7 @@ jobs:
           cd ${{ github.workspace }}
           $env:NP2KAI_HASH = (echo ${{ github.sha }}).Substring(0,6)
           $env:VCPKG_ROOT = 'C:/vcpkg'
-          cmake . -G"Ninja" 
+          cmake . -G"Ninja"  -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_MAKE_PROGRAM=ninja.exe -DCMAKE_CXX_COMPILER=cl.exe -DCMAKE_C_COMPILER=cl.exe
           type ${{ github.workspace }}\CMakeFiles\CMakeOutput.log
           dir
           
