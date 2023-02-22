@@ -4,7 +4,7 @@
  */
 
 #include "compiler.h"
-#include "strres.h"
+#include "../common/strres.h"
 #include "profile.h"
 #include "np2.h"
 #include "np2arg.h"
