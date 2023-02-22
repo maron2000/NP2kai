@@ -48,7 +48,6 @@
 #include <fcntl.h>
 
 #ifdef __MINGW32__ 
-#include <sys/ioctl.h>
 #include <termios.h>
 #endif
 
