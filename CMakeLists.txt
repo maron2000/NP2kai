@@ -637,7 +637,7 @@ if(NOT CMAKE_CROSSCOMPILING)
 			execute_process(COMMAND ${GIT_EXECUTABLE} submodule update --init --recursive ${NP2kai_SOURCE_DIR}/cmake/FindWDK)
 		endif()
 		set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${NP2kai_SOURCE_DIR}/cmake/FindWDK/cmake")
-		find_package(WDK REQUIRED)
+		#find_package(WDK REQUIRED)
 	endif()
 endif()
 
