@@ -47,6 +47,10 @@
 #include <errno.h>
 #include <fcntl.h>
 
+#ifdef __MINGW32__ 
+#include <sys/ioctl.h>
+#include <termios.h>
+#endif
 
 typedef struct {
 #if defined(_WINDOWS)
