@@ -12,7 +12,7 @@ details. */
 #define _SYS_IOCTL_H
 
 #include <sys/cdefs.h>
-#include <sys/termios.h>
+#include "termios.h"
 
 __BEGIN_DECLS
 
