@@ -199,7 +199,7 @@ serialgetstat(COMMNG self)
 	}else{
 		VERBOSE(("serialgetstat: DSR is enable"));
 	}
-#if !defined(__MINGW__)
+#if !(defined(__MINGW32__) && defined(__MINGW64_VERSION_MAJOR))
 	if (!(status & TIOCM_CTS)) {
 		ret |= 0x40;
 	}
