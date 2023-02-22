@@ -48,7 +48,8 @@
 #include <fcntl.h>
 
 #ifdef __MINGW32__ 
-#include <termios.h>
+#include "ioctl.h"
+#include "termios.h"
 #endif
 
 typedef struct {
