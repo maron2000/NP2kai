@@ -57,7 +57,7 @@ jobs:
           $env:WDK_DIR = 'C:\Program Files(x86)\Windows Kits\10\'
           $env:WDK_ROOT = 'C:\Program Files(x86)\Windows Kits\10\'
           $env:WDK_VERSION = '10.0.22000.0'
-          cmake --build . -G"Ninja"  -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_MAKE_PROGRAM=ninja.exe -DCMAKE_CXX_COMPILER=cl.exe -DCMAKE_C_COMPILER=cl.exe
+          cmake --build . -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_MAKE_PROGRAM=ninja.exe -DCMAKE_CXX_COMPILER=cl.exe -DCMAKE_C_COMPILER=cl.exe
           #cmake . -G"Ninja" -DCMAKE_MAKE_PROGRAM=ninja.exe -DCMAKE_CXX_COMPILER=cl.exe -DCMAKE_C_COMPILER=cl.exe
           type ${{ github.workspace }}\CMakeFiles\CMakeOutput.log
           dir
