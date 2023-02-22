@@ -48,11 +48,11 @@ jobs:
           echo '}' >> vcpkg.json
           cat vcpkg.json
           vcpkg integrate install
-          export NP2KAI_HASH = $(git rev-parse --short HEAD)
       - name: run cmake
         shell: bash
         run: |
           cd ${{ github.workspace }}
+          export NP2KAI_HASH = $(git rev-parse --short HEAD)
           cmake . -G"Ninja" -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_MAKE_PROGRAM=ninja.exe -DCMAKE_CXX_COMPILER=cl.exe -DCMAKE_C_COMPILER=cl.exe
           type D:/a/NP2kai/NP2kai/CMakeFiles/CMakeOutput.log
           dir
