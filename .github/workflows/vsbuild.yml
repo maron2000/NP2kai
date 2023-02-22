@@ -10,6 +10,8 @@ jobs:
     permissions:
       actions: write  # for styfle/cancel-workflow-action to cancel/stop running workflow
     runs-on: windows-latest
+    env:
+      NP2KAI_VERSION: rev.22
     defaults:
       run:
         shell: pwsh
@@ -20,6 +22,7 @@ jobs:
           access_token: ${{ github.token }}
       - uses: actions/checkout@v3
       - uses: microsoft/setup-msbuild@v1.3
+      - uses: ilammy/msvc-dev-cmd@v1
       - uses: seanmiddleditch/gha-setup-ninja@master
       - name: Install dependencies
         shell: pwsh
@@ -45,8 +48,9 @@ jobs:
           echo '}' >> vcpkg.json
           cat vcpkg.json
           vcpkg integrate install
+          export NP2KAI_HASH = $(git rev-parse --short HEAD)
       - name: run cmake
-        shell: pwsh
+        shell: bash
         run: |
           cd ${{ github.workspace }}
           cmake . -G"Ninja" -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_MAKE_PROGRAM=ninja.exe -DCMAKE_CXX_COMPILER=cl.exe -DCMAKE_C_COMPILER=cl.exe
