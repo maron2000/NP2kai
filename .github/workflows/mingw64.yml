@@ -38,7 +38,7 @@ jobs:
           cd build
           cmake .. -D BUILD_SDL=ON
           # make -j3 LDFLAGS="-lgdi32 -lwinmm -lstdc++ -lwinmm -limm32"
+          ls -lg
           make -j3
           ls -lg
-          cd ..
-          ls -lg
+
