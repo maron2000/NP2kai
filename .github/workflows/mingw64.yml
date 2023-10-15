@@ -33,6 +33,8 @@ jobs:
         run: |
           echo "timestamp=`date +%F-%T | sed -e 's/:/-/g' | sed -e 's/-//g'`" >> $GITHUB_ENV
           top=`pwd`
+          echo $top
+          ls -lg
           mkdir build
           cd build
           cmake .. -D BUILD_SDL=ON
