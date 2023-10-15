@@ -28,17 +28,17 @@ jobs:
         with:
           msystem: MINGW64
           update: true
-          install: git cmake make mingw-w64-x86_64-toolchain mingw-w64-x86_64-ntldd mingw-w64-x86_64-SDL2 mingw-w64-x86_64-SDL2_mixer mingw-w64-x86_64-SDL2_ttf mingw-w64-x86_64-SDL mingw-w64-x86_64-SDL_mixer mingw-w64-x86_64-SDL_ttf mingw-w64-x86_64-openssl mingw-w64-x86_64-libusb mingw-w64-x86_64-dlfcn  mingw-w64-x86_64-freetype
+          install: git cmake make mingw-w64-x86_64-toolchain mingw-w64-x86_64-ntldd mingw-w64-x86_64-SDL2 mingw-w64-x86_64-SDL2_mixer mingw-w64-x86_64-SDL2_ttf mingw-w64-x86_64-SDL mingw-w64-x86_64-SDL_mixer mingw-w64-x86_64-SDL_ttf mingw-w64-x86_64-openssl mingw-w64-x86_64-libusb mingw-w64-x86_64-dlfcn  mingw-w64-x86_64-freetype mingw-w64-x86_64-mpg123
       - name: Build MinGW64
         run: |
           echo "timestamp=`date +%F-%T | sed -e 's/:/-/g' | sed -e 's/-//g'`" >> $GITHUB_ENV
           top=`pwd`
           echo $top
-          ls -lg
           mkdir build
           cd build
           cmake .. -D BUILD_SDL=ON
-          make -j3 LDFLAGS="-lgdi32 -lwinmm -lstdc++"
+          # make -j3 LDFLAGS="-lgdi32 -lwinmm -lstdc++ -lwinmm -limm32"
+          make -j3
           ls -lg
           cd ..
           ls -lg
