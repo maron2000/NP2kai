@@ -690,7 +690,7 @@ target_compile_definitions(NP2kai_bbase INTERFACE ${NP2kai_common_definitions} "
 target_include_directories(NP2kai_bbase INTERFACE ${NP2kai_common_include_dirs})
 target_sources(NP2kai_bbase INTERFACE ${NP2kai_common_sources})
 if(NP2kai_Windows AND NOT MSVC_VERSION)
-target_link_libraries(NP2kai_bbase INTERFACE stdc++)
+target_link_libraries(NP2kai_bbase INTERFACE stdc++ winmm imm32 gdi32 freetype)
 elseif(NOT NP2kai_Windows)
 target_link_libraries(NP2kai_bbase INTERFACE)
 endif()
